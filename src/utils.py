@@ -6,6 +6,12 @@ import matplotlib.pyplot as plt
 from scipy.stats import mode
 
 
+import pandas as pd
+import os
+import random
+from sklearn.utils import shuffle
+
+
 def plot_history(history , title='model accuracy / loss'):
   plt.plot(history.history['accuracy'])
   plt.plot(history.history['val_accuracy'])
@@ -280,3 +286,74 @@ def confusion(y_pred, y_exp):
   print('TP: {}, TN: {}, FP: {}, FN: {}'.format(TP, TN, FP, FN))
 
 
+
+def pneu_bronch_sets():
+  #1: bacterial pneumonia and 2: viral pneumonia and 3: bronchiolitis
+  clinical = pd.read_csv('../data/Pn_POA_clinical_database.csv')
+  diagnosis = np.array(clinical['diagnosis'].tolist())
+  patients = np.array(clinical['patient'].tolist())
+  pn_bronch = diagnosis[(diagnosis == '1' )| (diagnosis == '3') | (diagnosis == '2')]
+  pn_bronch_patients = patients[(diagnosis == '1' )| (diagnosis == '3') | (diagnosis == '2')]
+  print('Bronchiolitis: '+ str(np.sum(pn_bronch == '3')))
+  print('Pneumonia: ' + str(np.sum(pn_bronch == '1') + np.sum(pn_bronch == '2')))
+
+  bronch = pn_bronch_patients[pn_bronch == '3']
+  pneu = pn_bronch_patients[(pn_bronch == '1') | (pn_bronch == '2')]
+
+
+  train1 = np.array(os.listdir('../data/train/Pn_POA_Cases/batch_1'))
+  train2 = np.array(os.listdir('../data/train/Pn_POA_Cases/batch_2'))
+  train3 = np.array(os.listdir('../data/train/Pn_POA_Cases/batch_3'))
+  train4 = np.array(os.listdir('../data/train/Pn_POA_Cases/batch_4'))
+  train5 = np.array(os.listdir('../data/test/POA_Ca_Co'))
+
+  train = np.hstack((train1, train2, train3, train4, train5))
+
+  keep_train = np.array([p for p in pn_bronch_patients if p in train])
+  bronch_all = np.array([b for b in bronch if b in keep_train])
+  pneu_all = np.array([pn for pn in pneu if pn in keep_train])
+
+  print('Undersampling of bronchiolite')
+  
+  keep = np.array([83, 12, 26, 78, 96, 32, 82, 84,  5, 44, 97, 33, 86, 22, 71, 92, 91,  1, 52, 54, 85,  0, 57, 88, 7, 64, 73, 87, 17, 70])
+
+  bronch_all = bronch_all[keep]
+  bronch_train = bronch_all[:26]
+  bronch_test = bronch_all[26:]
+  pneu_train = pneu_all[:26]
+  pneu_test = pneu_all[26:]
+
+
+  keep_train = np.hstack((bronch_train, pneu_train))
+  keep_test = np.hstack((bronch_test, pneu_test))
+  print('Train: ' + str(len(keep_train)))
+  print('Test: ' + str(len(keep_test)))
+
+  sets = ['../data/train/Pn_POA_Cases/*/', '../data/test/POA_Ca_Co/']
+  features = []; positions = []; patientnbs = []
+  featuresT = []; positionsT = []; patientnbsT = []
+  
+  for i,p in enumerate(keep_train):
+    feature, _, position, _, _, patientnb = sp.get_feature_and_labels(sets[1]+str(p)+'/*' if p in train5 else sets[0]+str(p)+'/*' ) # both control and case
+    features = np.hstack((features, feature))
+    positions = np.hstack((positions, position))
+    patientnbs = np.hstack((patientnbs, patientnb))
+
+  for i,p in enumerate(keep_test):
+    featureT, _, positionT, _, _, patientnbT = sp.get_feature_and_labels(sets[1]+str(p)+'/*' if p in train5 else sets[0]+str(p)+'/*' ) # both control and case
+    featuresT = np.hstack((featuresT, featureT))
+    positionsT = np.hstack((positionsT, positionT))
+    patientnbsT = np.hstack((patientnbsT, patientnbT))
+
+  controls = []; controlsT = []
+  for nb in patientnbs:
+    control = 'Ca' if 'Pn_POA_Ca'+str(nb) in bronch_train else 'Co'
+    controls = np.hstack((controls, control))
+  for nb in patientnbsT:
+    controlT = 'Ca' if 'Pn_POA_Ca'+str(nb) in bronch_test else 'Co'
+    controlsT = np.hstack((controlsT, controlT))
+
+  features, controls, positions, patientnbs = shuffle(features, controls, positions, patientnbs)
+  featuresT, controlsT, positionsT, patientnbsT = shuffle(featuresT, controlsT, positionsT, patientnbsT)
+
+  return (features, controls, positions, patientnbs), (featuresT, controlsT, positionsT, patientnbsT)
