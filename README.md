@@ -37,6 +37,14 @@ only if you want to test Grad-Cam class activation
 
 use pip or conda install
 
+
+>
+> Warining : the processed dataset is huge more than 30 GB
+> All the following run can take up to 40 min just in data processing
+> Prepare a cofee if you plan to train them from scratch :) 
+>
+
+
 ## Where to find the best models
 
 in src/model/ you can find the most succeful models
@@ -74,6 +82,8 @@ run the notebooks for
 * Luka Chinchaladze
 * Etienne Salimbeni
 
-## Acknowledgement
+## Acknowledgements
+
+Thank you !!!!
 
  
