@@ -12,30 +12,6 @@ import random
 from sklearn.utils import shuffle
 
 
-def plot_history(history , title='model accuracy / loss'):
-  plt.plot(history.history['accuracy'])
-  plt.plot(history.history['val_accuracy'])
-  plt.plot(history.history['loss'])
-  plt.plot(history.history['val_loss'])
-  plt.title(title)
-  plt.ylabel('accuracy / loss')
-  plt.xlabel('epoch')
-  plt.legend(['train_acc', 'test_acc','train_loss','test_loss'], loc='lower left')
-  plt.ylim(ymax = 1, ymin = 0)
-  plt.savefig('graph.png')
-  plt.show()
-
-
-
-def f1(y_true, y_pred): #taken from old keras source code
-    """F1 metric callback for the model"""
-    true_positives = K.sum(K.round(K.clip(y_true * y_pred, 0, 1)))
-    possible_positives = K.sum(K.round(K.clip(y_true, 0, 1)))
-    predicted_positives = K.sum(K.round(K.clip(y_pred, 0, 1)))
-    precision = true_positives / (predicted_positives + K.epsilon())
-    recall = true_positives / (possible_positives + K.epsilon())
-    f1_val = 2*(precision*recall)/(precision+recall+K.epsilon())
-    return f1_val
 
 
 def prepare_samples( feat , cont , posi , pnbs , shuffle=True ,extractor = lambda s : sp.features_extraction(s,22050,'stft') ):
@@ -130,18 +106,6 @@ def stack_pos(patients, features, controls, positions, patientnbs, high_limit=0,
 
     return x[shuffle_indices], y[shuffle_indices], patient_id[shuffle_indices]
 
-
-def load_from_npz(z_compressed_path ):
-  """Loads the data from compressed file and returns the lists of data"""
-  print("Importing from: "+z_compressed_path)
-  # export from z_compressed file
-  dict_data = np.load(z_compressed_path,allow_pickle=True)
-
-  feat, deas = dict_data['arr_0'] , dict_data['arr_1']
-  pos, cont =  dict_data['arr_2'] , dict_data['arr_3']
-  freq, pat = dict_data['arr_4'] , dict_data['arr_5']
-
-  return feat, deas, pos, cont, freq, pat
 
 
 def feature_loader( z_compressed_path , raw_data_path ):
@@ -357,3 +321,48 @@ def pneu_bronch_sets():
   featuresT, controlsT, positionsT, patientnbsT = shuffle(featuresT, controlsT, positionsT, patientnbsT)
 
   return (features, controls, positions, patientnbs), (featuresT, controlsT, positionsT, patientnbsT)
+
+  
+
+
+
+# BASIC UTILS
+
+
+def plot_history(history , title='model accuracy / loss'):
+  plt.plot(history.history['accuracy'])
+  plt.plot(history.history['val_accuracy'])
+  plt.plot(history.history['loss'])
+  plt.plot(history.history['val_loss'])
+  plt.title(title)
+  plt.ylabel('accuracy / loss')
+  plt.xlabel('epoch')
+  plt.legend(['train_acc', 'test_acc','train_loss','test_loss'], loc='lower left')
+  plt.ylim(ymax = 1, ymin = 0)
+  plt.savefig('graph.png')
+  plt.show()
+
+
+
+def f1(y_true, y_pred): #taken from old keras source code
+    """F1 metric callback for the model"""
+    true_positives = K.sum(K.round(K.clip(y_true * y_pred, 0, 1)))
+    possible_positives = K.sum(K.round(K.clip(y_true, 0, 1)))
+    predicted_positives = K.sum(K.round(K.clip(y_pred, 0, 1)))
+    precision = true_positives / (predicted_positives + K.epsilon())
+    recall = true_positives / (possible_positives + K.epsilon())
+    f1_val = 2*(precision*recall)/(precision+recall+K.epsilon())
+    return f1_val
+
+
+def load_from_npz(z_compressed_path ):
+  """Loads the data from compressed file and returns the lists of data"""
+  print("Importing from: "+z_compressed_path)
+  # export from z_compressed file
+  dict_data = np.load(z_compressed_path,allow_pickle=True)
+
+  feat, deas = dict_data['arr_0'] , dict_data['arr_1']
+  pos, cont =  dict_data['arr_2'] , dict_data['arr_3']
+  freq, pat = dict_data['arr_4'] , dict_data['arr_5']
+
+  return feat, deas, pos, cont, freq, pat

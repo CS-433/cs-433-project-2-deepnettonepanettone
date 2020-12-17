@@ -72,6 +72,11 @@ run the notebooks for
 
 ## Test our validation methods
 
+>
+> All the main functions are in utils.py and sound_processing.py
+> The notebooks (that use these functions) are here as examples and proof for our results
+>
+
 * 10fold cross validation for GVA : MPO_10fold_cross_validation_and_prediction.ipynb
 * data augmentation : use sound_processing.augmented function
 * Grad-Cam class activation : MPO_10fold_cross_validation_and_prediction.ipynb

@@ -14,7 +14,15 @@ import glob
 
 
 def get_feature_and_labels( path ):
+    '''
+    crop raw audios from path
     
+    Args:
+        path (string): path of the folder
+    
+     Returns   
+         (features, diseases , positions , controls , frequences , patientnbs) : features of the patients crops in the given path       
+    '''
     sound_path = glob.glob(path+'/*.wav')
     size = len(sound_path) # number of sounds
     print('parsing '+str(size)+' audio files',flush=True)
@@ -71,17 +79,6 @@ def get_feature_and_labels( path ):
 
 
 
-def show_spec_from_sample(sample , frequency):
-    f, t, Sxx = signal.spectrogram(sample, frequency)
-    plt.pcolormesh(t, f, Sxx, shading='gouraud')
-    plt.ylabel('Frequency [Hz]')
-    plt.xlabel('Time [sec]')
-    plt.show()
-    
-def get_spect(path):
-    sample_rate, samples = wavfile.read(path)
-    frequencies, times, spectrogram = signal.spectrogram(samples, sample_rate)
-    return spectrogram
 
 
 def crop_sample( samples, frequency, size_crop=5, step_crop=2.5):
@@ -187,3 +184,18 @@ def augmented(features,positions, controls, nbs):
 
   return features_aug, positions_aug, controls_aug, nbs_aug
 
+
+
+# BASIC UTILS 
+
+def show_spec_from_sample(sample , frequency):
+    f, t, Sxx = signal.spectrogram(sample, frequency)
+    plt.pcolormesh(t, f, Sxx, shading='gouraud')
+    plt.ylabel('Frequency [Hz]')
+    plt.xlabel('Time [sec]')
+    plt.show()
+    
+def get_spect(path):
+    sample_rate, samples = wavfile.read(path)
+    frequencies, times, spectrogram = signal.spectrogram(samples, sample_rate)
+    return spectrogram
