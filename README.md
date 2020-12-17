@@ -50,15 +50,15 @@ use pip or conda install
 in src/model/ you can find the most succeful models
 
 * best model for GVA with the model by Patient : 
-* best model for GVA with the model by Position : 
+* best model for GVA with the model by Position : MPO_GVA_best/
 
 * best model for POA with the model by Patient : 
-* best model for POA with the model by Position : 
+* best model for POA with the model by Position : MPO_POA_best/
 
 
 You can also find all the saved models we used for the paper in this model/ folder
 
-## Run the best model
+## Run the best models
 
 > you can adapt the all notebooks with the model weights you are curious to test
 
@@ -72,11 +72,13 @@ run the notebooks for
 
 ## Test our validation methods
 
-* 10fold cross valudation : MPO_10fold_cross_validation_and_prediction.ipynb
+* 10fold cross valudation for GVA : MPO_10fold_cross_validation_and_prediction.ipynb
 * data augmentation :
 * Grad-Cam class activation :
 * different types of spectrogram :  
 * position relevance : Remove_Position_Analysis.ipynb
+* transfer learning : 
+* Monte carlo dropout : MPO_10fold_cross_validation_and_prediction.ipynb
 
 ## Authors
 
