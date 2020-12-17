@@ -72,13 +72,18 @@ run the notebooks for
 
 ## Test our validation methods
 
-* 10fold cross valudation for GVA : MPO_10fold_cross_validation_and_prediction.ipynb
+* 10fold cross validation for GVA : MPO_10fold_cross_validation_and_prediction.ipynb
 * data augmentation : use sound_processing.augmented function
 * Grad-Cam class activation : MPO_10fold_cross_validation_and_prediction.ipynb
 * different types of spectrogram : \*\_MEL.h5 and \*\_MFCC.h5 
 * position relevance : Remove_Position_Analysis.ipynb
-* transfer learning : use  \*\_TRANSF\_\*/ weights
+* transfer learning : 
+    * GVA to POA1  \*\_TRANSF\_\*/run2 weights
+    * GVA to POA2  \*\_TRANSF\_\*/run6 weights
+    * POA1 to GVA  \*\_TRANSF\_\*/run5 weights
+    * POA2 to GVA  \*\_TRANSF\_\*/run8 weights
 * Monte carlo dropout : MPO_10fold_cross_validation_and_prediction.ipynb
+* types of normalisation : \*\_STFT_FEAT/ , \*\_STFT_SAMPLE/
 
 ## Authors
 
