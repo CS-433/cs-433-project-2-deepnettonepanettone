@@ -14,7 +14,7 @@ git clone https://github.com/CS-433/cs-433-project-2-deepnettonepanettone
 cd cs-433-project-2-deepnettonepanettone/src
 ```
 
-at the source of the repo add a link or copy of this google drive :
+at the source of the repo add a link or copy of this google drive (preporcessed dataset) :
 ```
 https://drive.google.com/drive/folders/1akCqrEMU8lgYp0bHNEoPEUQdTjKwGur2?usp=sharing
 ```
@@ -28,9 +28,11 @@ make sure the python environment has :
 * librosa
 * maplotlib
 * tensorflow - keras
+
+
+only if you want to test data augentation technics
 * nlpaug
-
-
+only if you want to test Grad-Cam class activation 
 * tf-keras-vis
 
 use pip or conda install
