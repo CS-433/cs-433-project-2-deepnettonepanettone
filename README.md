@@ -77,7 +77,7 @@ run the notebooks for
 * Grad-Cam class activation :
 * different types of spectrogram :  
 * position relevance : Remove_Position_Analysis.ipynb
-* transfer learning : use  _TRANSF_ /  
+* transfer learning : use  \*\_TRANSF\_\*/ weights
 * Monte carlo dropout : MPO_10fold_cross_validation_and_prediction.ipynb
 
 ## Authors
