@@ -79,7 +79,7 @@ run the notebooks for
 
 * 10fold cross validation for GVA : MPO_10fold_cross_validation_and_prediction.ipynb
 * data augmentation : use sound_processing.augmented function
-* Grad-Cam class activation : MPO_10fold_cross_validation_and_prediction.ipynb
+* Grad-Cam class activation : grad_cam_POA.ipynb
 * different types of spectrogram : \*\_MEL.h5 and \*\_MFCC.h5 
 * position relevance : Remove_Position_Analysis.ipynb
 * transfer learning : 
