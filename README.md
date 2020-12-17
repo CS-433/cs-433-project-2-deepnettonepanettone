@@ -1,10 +1,37 @@
-# ml_project2
+# PneumoNet: Neural networks for the detection of pneumonia from digital lung auscultation audio
 
 
-## notes
+add abstract copy here
 
-* too short samples (ex: 2s when crop_size==5s) are simply removed
 
-* ...
+## Environment setup
 
-!pip install numpy requests nlpaug  --> for 
+ You can use the notebooks directly on a local directory or on google colab in order to use their free GPUs.
+
+In both scenario, please :
+```
+git clone https://github.com/CS-433/cs-433-project-2-deepnettonepanettone
+cd cs-433-project-2-deepnettonepanettone/src
+```
+
+at the source of the repo add a link or copy of this google drive :
+```
+https://drive.google.com/drive/folders/1akCqrEMU8lgYp0bHNEoPEUQdTjKwGur2?usp=sharing
+```
+
+## Dependencies
+
+make sure the python environment has : 
+
+* numpy
+* scipy
+* librosa
+* maplotlib
+* tensorflow - keras
+* nlpaug
+
+
+* tf-keras-vis
+
+use pip or conda install
+
