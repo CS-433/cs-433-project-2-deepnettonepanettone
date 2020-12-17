@@ -1,7 +1,13 @@
 # PneumoNet: Neural networks for the detection of pneumonia from digital lung auscultation audio
 
 
-add abstract copy here
+Precise lung sounds classification is still an open issue: traditional auscultation methods are
+limited due to biased human interpretation. This paper introduce two CNN models, which differ in the way
+audio crops are combined and fed to the network. They recognize specific audio patterns in the STFT
+spectrograms and classify healthy and unhealthy pediatric patients, suffering from different pulmonary
+diseases. Two different datasets are investigated and compared rigorously; however, the attempts to find a
+general model that performed well on both sets were not successful. After a weighted mean aggregation method,
+both models achieved an accuracy of 94%.
 
 
 ## Environment setup
@@ -41,9 +47,9 @@ use pip or conda install
 >
 > Warining : the processed dataset is huge more than 30 GB
 > All the following run can take up to 40 min just in data processing
-> Prepare a cofee if you plan to train them from scratch :) 
+> Make sure you have 12 GB of RAM available, and not to upload more than 2 batch 
+> on the same runtime, especially on the model by patient as it using early fusion. 
 >
-
 
 ## Where to find the best models
 
@@ -54,7 +60,6 @@ in src/model/ you can find the most succeful models
 
 * best model for POA with the model by Patient : TRAIN_ON_POA_BATCH_1/TRAIN_ON_POA_BATCH_1_RUN_7_-2020-12-12.h5
 * best model for POA with the model by Position : MPO_POA_best/
-
 
 You can also find all the saved models we used for the paper in this model/ folder
 
