@@ -62,16 +62,17 @@ run the notebooks for
 
 ## Test our validation methods
 
-* 10fold cross valudation use : 
+* 10fold cross valudation : 
 * data augmentation :
-* 
+* Grad-Cam class activation :
+* different types of spectrogram : 
 * 
 
 ## Authors
 
-* Sara
-* Luka
-* Etienne
+* Sara Pagnamenta
+* Luka Chinchaladze
+* Etienne Salimbeni
 
 ## Acknowledgement
 
