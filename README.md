@@ -9,6 +9,7 @@ diseases. Two different datasets are investigated and compared rigorously; howev
 general model that performed well on both sets were not successful. After a weighted mean aggregation method,
 both models achieved an accuracy of 94%.
 
+see report : [PneumoNet](https://github.com/CS-433/cs-433-project-2-deepnettonepanettone/blob/main/PneumoNet.pdf)
 
 ## Environment setup
 
