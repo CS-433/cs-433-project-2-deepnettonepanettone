@@ -49,10 +49,10 @@ use pip or conda install
 
 in src/model/ you can find the most succeful models
 
-* best model for GVA with the model by Patient : 
+* best model for GVA with the model by Patient : TRAIN_ON_GVA_REM_POS_9/TRAIN_ON_GVA_TFINAL_RUN_3_-2020-12-12.h5
 * best model for GVA with the model by Position : MPO_GVA_best/
 
-* best model for POA with the model by Patient : 
+* best model for POA with the model by Patient : TRAIN_ON_POA_BATCH_1/TRAIN_ON_POA_BATCH_1_RUN_7_-2020-12-12.h5
 * best model for POA with the model by Position : MPO_POA_best/
 
 
