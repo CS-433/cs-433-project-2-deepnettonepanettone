@@ -14,7 +14,7 @@ git clone https://github.com/CS-433/cs-433-project-2-deepnettonepanettone
 cd cs-433-project-2-deepnettonepanettone/src
 ```
 
-at the source of the repo add a link or copy of this google drive (preporcessed dataset) :
+at the source of the repo add a link or copy of this google drive folder (preporcessed dataset) :
 ```
 https://drive.google.com/drive/folders/1akCqrEMU8lgYp0bHNEoPEUQdTjKwGur2?usp=sharing
 ```
@@ -60,21 +60,23 @@ You can also find all the saved models we used for the paper in this model/ fold
 
 ## Run the best model
 
+> you can adapt the all notebooks with the model weights you are curious to test
+
 run the notebooks for
 
-* best model for GVA with the model by Patient with :
-* best model for GVA with the model by Position with :
+* best model for GVA with the model by Patient with : 
+* best model for GVA with the model by Position with : MPO_10fold_cross_validation_and_prediction.pynb
 
 * best model for POA with the model by Patient with :
-* best model for POA with the model by Position with :
+* best model for POA with the model by Position with : MPO_10fold_cross_validation_and_prediction.ipynb
 
 ## Test our validation methods
 
-* 10fold cross valudation : 
+* 10fold cross valudation : MPO_10fold_cross_validation_and_prediction.ipynb
 * data augmentation :
 * Grad-Cam class activation :
-* different types of spectrogram : 
-* 
+* different types of spectrogram :  
+* position relevance : Remove_Position_Analysis.ipynb
 
 ## Authors
 
@@ -85,5 +87,3 @@ run the notebooks for
 ## Acknowledgements
 
 Thank you !!!!
-
- 
