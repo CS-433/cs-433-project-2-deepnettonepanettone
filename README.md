@@ -29,11 +29,12 @@ make sure the python environment has :
 * maplotlib
 * tensorflow - keras
 
-
 only if you want to test data augentation technics
 * nlpaug
 only if you want to test Grad-Cam class activation 
 * tf-keras-vis
 
 use pip or conda install
+
+kkk
 
