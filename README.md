@@ -31,10 +31,48 @@ make sure the python environment has :
 
 only if you want to test data augentation technics
 * nlpaug
+
 only if you want to test Grad-Cam class activation 
 * tf-keras-vis
 
 use pip or conda install
 
-kkk
+## Where to find the best models
 
+in src/model/ you can find the most succeful models
+
+* best model for GVA with the model by Patient : 
+* best model for GVA with the model by Position : 
+
+* best model for POA with the model by Patient : 
+* best model for POA with the model by Position : 
+
+
+You can also find all the saved models we used for the paper in this model/ folder
+
+## Run the best model
+
+run the notebooks for
+
+* best model for GVA with the model by Patient with :
+* best model for GVA with the model by Position with :
+
+* best model for POA with the model by Patient with :
+* best model for POA with the model by Position with :
+
+## Test our validation methods
+
+* 10fold cross valudation use : 
+* data augmentation :
+* 
+* 
+
+## Authors
+
+* Sara
+* Luka
+* Etienne
+
+## Acknowledgement
+
+ 
