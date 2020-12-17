@@ -14,7 +14,7 @@ git clone https://github.com/CS-433/cs-433-project-2-deepnettonepanettone
 cd cs-433-project-2-deepnettonepanettone/src
 ```
 
-at the source of the repo add a link or copy of this google drive folder (preporcessed dataset) :
+at the source of the repo add a shortcut using the link or copy the content of this google drive folder (preporcessed dataset) :
 ```
 https://drive.google.com/drive/folders/1akCqrEMU8lgYp0bHNEoPEUQdTjKwGur2?usp=sharing
 ```
@@ -64,18 +64,18 @@ You can also find all the saved models we used for the paper in this model/ fold
 
 run the notebooks for
 
-* best model for GVA with the model by Patient with : 
+* best model for GVA with the model by Patient with : confusion_matrix_MPA.ipynb
 * best model for GVA with the model by Position with : MPO_10fold_cross_validation_and_prediction.pynb
 
-* best model for POA with the model by Patient with :
+* best model for POA with the model by Patient with : confusion_matrix_MPA.ipynb
 * best model for POA with the model by Position with : MPO_10fold_cross_validation_and_prediction.ipynb
 
 ## Test our validation methods
 
 * 10fold cross valudation for GVA : MPO_10fold_cross_validation_and_prediction.ipynb
-* data augmentation :
-* Grad-Cam class activation :
-* different types of spectrogram :  
+* data augmentation : use sound_processing.augmented function
+* Grad-Cam class activation : MPO_10fold_cross_validation_and_prediction.ipynb
+* different types of spectrogram : \*\_MEL.h5 and \*\_MFCC.h5 
 * position relevance : Remove_Position_Analysis.ipynb
 * transfer learning : use  \*\_TRANSF\_\*/ weights
 * Monte carlo dropout : MPO_10fold_cross_validation_and_prediction.ipynb
